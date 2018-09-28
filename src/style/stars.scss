@@ -1,0 +1,198 @@
+@function random-color($col) {
+  @return ($col);
+}
+
+// n is number of stars required
+@function multiple-box-shadow($n,$blur,$color) {
+  $value: "#{random($view-height)}px #{random($view-height)}px #{$blur}px 0px #{random-color($color)}";
+
+  @for $i from 1 through $n {
+    $value: "#{$value} , #{random($view-height)}px #{random($view-height)}px #{$blur}px 0px #{random-color($color)}";
+  }
+
+  @return unquote($value);
+}
+
+
+@function multiple-bg-position($n) {
+  $val: "#{random($view-height)}px #{random(300)}px";
+
+  @for $i from 1 through $n {
+    $val: "#{$val} , #{random($view-height)}px #{random(300)}px";
+  }
+
+  @return unquote($val);
+}
+
+@function multiple-bg($n) {
+  $bg: "#{$star}";
+
+  @for $i from 1 through $n {
+    $bg: "#{$bg} , #{$star}";
+  }
+
+  @return unquote($bg);
+}
+
+
+$shadows-small: multiple-box-shadow(1100,1,$white);
+$shadows-medium: multiple-box-shadow(800,4,#ADCA72);
+$shadows-big: multiple-box-shadow(700,1,#F0F8FF);
+$shadows-opacity: multiple-box-shadow(1100,2,#8CA8D7);
+$bg-position: multiple-bg-position(150);
+$bg-image:multiple-bg(150);
+
+
+
+.parallax {
+
+height: 100vh;
+  background: linear-gradient(to bottom, #0a1425 0%,#101e3b 39%,#152d5b 64%,#1f426c 100%);
+  #stars1 {
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: $shadows-small;
+    animation: glitter 5s linear infinite;
+
+   // animation: animStar 150s linear infinite;
+
+    &:after {
+      content: " ";
+      position: absolute;
+         bottom: 0;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: $shadows-medium;
+    }
+  
+    
+  }
+  
+  #stars2 {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: transparent;
+
+    box-shadow: $shadows-big;
+     animation: glitter 10s linear infinite;
+     opacity: 0.5;
+
+  
+    &:after {
+      content: " ";
+      position: absolute;
+         bottom: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: $shadows-big;
+    }
+  }
+  
+  #stars3 {
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: $shadows-medium;
+
+   // animation: animStar 100s linear infinite;
+  
+    &:after {
+      content: " ";
+      position: absolute;
+      bottom: 0;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: $shadows-medium;
+    }
+  }
+
+  #stars5 {
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: $shadows-opacity;
+    opacity: 0.65;
+   // animation: animStar 100s linear infinite;
+  
+    &:after {
+      content: " ";
+      position: absolute;
+      bottom: 0;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: $shadows-opacity;
+    }
+  }
+
+   #stars4 {
+    width: 100%;
+    height: 310px;
+    //border-radius: 50%;
+    background-color: transparent;
+    background-image:$bg-image;
+     background-size: 10px 10px;
+    background-position: $bg-position;
+   
+    background-repeat: no-repeat;
+    opacity: 0.8;
+   // animation: glitter 50s linear infinite;
+   // animation: glitter 10s linear infinite;
+   // animation: animStar 150s linear infinite;
+
+    &:after {
+      content: " ";
+      position: absolute;
+         bottom: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: transparent;
+      //box-shadow: $shadows-medium;
+    }
+  
+    
+  }
+  
+}
+
+
+
+@keyframes glitter {
+    0% {
+    //width: 5px;
+    opacity: 1;
+    }
+    25% {
+     // width: 6px;
+      opacity: 0;
+    }
+    50% {
+//width: 5px;
+    opacity: 1;
+    }
+    75% {
+   // width: 6px;
+    opacity: 0;
+    }
+    100% {
+   // width: 5px;
+    opacity: 1;
+    }
+}
+
+
+
+

@@ -1,102 +1,142 @@
 $body-bg: #fff;
-$white:#fff;
-$yellow:#CBC95F;
+$white: #fff;
+$yellow: #cbc95f;
 $view-height: 2000;
 $v-height: 100vh;
 $star: url(https://officialpsds.com/imageview/78/m3/78m383_large.png?1521316488);
 
-body {
-    background-color: $body-bg;
+body
+{
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 20px;
+
+    height: 100vh;
     margin: 0;
-    height:100vh;
+
+    color: #333;
     background: linear-gradient(to bottom, #0a1425 0%,#101e3b 39%,#152d5b 64%,#1f426c 100%);
+    background-color: $body-bg;
+}
+h1,
+h2,
+h3,
+h4,
+h5
+{
+    line-height: 1.25;
 
-
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-.wrapper {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  padding: 10% 10%;
-  padding-bottom: 0;
-  justify-content:flex-end;
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  z-index: 1;
+h3
+{
+    font-size: 32px;
 }
-
-.text {
-  width: 70%;
-  background-color: $body-bg;
-  position: relative;
-
-}
-
-.window {
-  width: 100%;
-  border: 30px solid $body-bg;
-  border-bottom: 50px solid $body-bg;
-  margin-right: auto;
-
-  position: relative;
-
-
-  background-image:  url(../img/land.png);
-    background-repeat: no-repeat;
-    background-position:  140% 100%;
-        background-size: contain;
-        overflow: hidden;
-            box-sizing: border-box;
-
-
-
-    &:after {
+.wrapper
+{
     position: absolute;
-    z-index: 3;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    height: 75%;
-    content: '';
-    background: url(../img/tree-left.png) no-repeat;
-    background-position: 0 100%;
+    z-index: 1;
+    top: 0;
+
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    padding: 10% 10%;
+    padding-bottom: 0;
+
+    justify-content: flex-end;
+}
+
+.wrapper__text
+{
+    position: relative;
+
+    width: 70%;
+
+    background-color: $body-bg;
+}
+
+.wrapper__window
+{
+    position: relative;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+    width: 100%;
+    margin-right: auto;
+
+    border: 30px solid $body-bg;
+    border-bottom: 50px solid $body-bg;
+    background-image: url(../img/land.png);
+    background-repeat: no-repeat;
+    background-position: 140% 100%;
     background-size: contain;
+
+
+
+    &:after
+    {
+        position: absolute;
+        z-index: 3;
+        bottom: 0;
+        left: 0;
+
+        width: 50%;
+        height: 75%;
+
+        content: '';
+
+        background: url(../img/tree-left.png) no-repeat;
+        background-position: 0 100%;
+        background-size: contain;
     }
 
 
-    &:before {
-position: absolute;
-    z-index: 1;
-    right: 0;
-    bottom: 0;
-    width: 50%;
-    height: 75%;
-    content: '';
-    background: url(../img/tree-right.png) no-repeat;
-    background-position: 100% 100%;
-    background-size: contain;
+    &:before
+    {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        bottom: 0;
+
+        width: 50%;
+        height: 75%;
+
+        content: '';
+
+        background: url(../img/tree-right.png) no-repeat;
+        background-position: 100% 100%;
+        background-size: contain;
     }
 }
 
 
-.yx {
+.yx
+{
     position: absolute;
     z-index: 2;
-    width: 55%;
-    height: 50%;
     bottom: 0;
     left: 50%;
+
     display: block;
-    background: url(../img/yx.gif) no-repeat;
+
+    width: 55%;
+    height: 50%;
 
     -webkit-transform: translate(-50%);
-    transform: translate(-50%);
+            transform: translate(-50%);
+
+    background: url(../img/yx.gif) no-repeat;
+    background-position: bottom;
     background-size: contain;
 }
 
-
-
-
-
+.parallax
+{
+    background: linear-gradient(to bottom, #0a1425 0%,#101e3b 39%,#152d5b 64%,#1f426c 100%);
+}

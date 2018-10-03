@@ -1,0 +1,50 @@
+.parallax
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    height: 100vh;
+
+    perspective: 1px;
+}
+
+.parallax__layer
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.stars__group
+{
+    transform: translateZ(0);
+}
+
+.parallax__group
+{
+    position: relative;
+    top: 200%;
+        overflow: hidden;
+        tarnsition:.3s;
+}
+
+.parallax__layer--back
+{
+    position: absolute;
+    bottom: -250vh;
+    left: 100px;
+
+    transform: translateZ(0px) scale(2);
+}
+
+.wrapper
+{
+    transform: translateZ(-1px) scale(2);
+}
+
+.portfolio
+{
+    transform: translateZ(-2px) scale(2.4);
+}

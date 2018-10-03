@@ -1,139 +1,179 @@
-* {
+*
+{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    border: 0;
-    box-sizing: border-box;
 
+    border: 0;
 }
-body {
+body
+{
     background: #212121;
 }
 
-.star {
-    display: block;
+.star
+{
     position: absolute;
+    z-index: 2;
     top: 50%;
     left: 50%;
+
+    display: block;
+    overflow: hidden;
+
     width: 48px;
     height: 48px;
-    background: #F6F6F6;
-    overflow: hidden;
-    z-index: 2;
+
     animation: glitter 10s linear infinite;
-  
+
+    background: #f6f6f6;
 }
 .star-top,
-.star-bottom {
+.star-bottom
+{
     position: relative;
+
     display: block;
 }
 .star-top:before,
 .star-top:after,
 .star-bottom:before,
-.star-bottom:after {
-    content: "";
+.star-bottom:after
+{
+    position: absolute;
+
     width: 48px;
     height: 48px;
-    background: #212121;
+
+    content: '';
+
     border-radius: 50%;
-    position: absolute;
+    background: #212121;
 }
 /*CSS3 pseudo class for positioning curves*/
 
-.star-top:before {
+.star-top:before
+{
     top: -24px;
     left: -24px;
 }
-.star-top:after {
+.star-top:after
+{
     bottom: -24px;
     left: 24px;
 }
-.star-bottom:before {
+.star-bottom:before
+{
     top: 24px;
     left: -24px;
 }
-.star-bottom:after {
+.star-bottom:after
+{
     top: 24px;
     left: 24px;
 }
 
-.stari {
-    display: block;
+.stari
+{
     position: absolute;
+    z-index: 2;
     top: 50%;
     left: 50%;
+
+    display: block;
+    overflow: hidden;
+
     width: 48px;
     height: 48px;
 
-    overflow: hidden;
-    z-index: 2;
     animation: glitter 10s linear infinite;
+
     background: url(https://cdn.icon-icons.com/icons2/894/PNG/512/Star_Gold_icon-icons.com_69141.png);
-    background-position: center center;
     background-repeat: no-repeat;
+    background-position: center center;
     background-size: contain;
 }
 
-.star5{
-  width: 0;
-  height: 0;
-  position: relative;
-  margin: 50px 0;
-  border: 100px solid rgba(0,0,0,0);
-  border-top: 0 solid;
-  border-bottom: 70px solid #1abc9c;
+.star5
+{
+    position: relative;
+
+    width: 0;
+    height: 0;
+    margin: 50px 0;
+
+    border: 100px solid rgba(0,0,0,0);
+    border-top: 0 solid;
+    border-bottom: 70px solid #1abc9c;
 
 
-&:before {
+    &:before
+    {
+        position: absolute;
+        top: -45px;
+        left: -65px;
 
-  width: 0;
-  height: 0;
-  position: absolute;
-  content: "";
-  top: -45px;
-  left: -65px;
-  border: 30px solid rgba(0,0,0,0);
-  border-top: 0 solid;
-  border-bottom: 80px solid #1abc9c;
+        width: 0;
+        height: 0;
 
-  transform: rotateZ(-35deg)   ;
-}
+        content: '';
+        transform: rotateZ(-35deg)   ;
 
-&:after {
-  width: 0;
-  height: 0;
-  position: absolute;
-  content: "";
-  top: 3px;
-  left: -105px;
-  border: 100px solid rgba(0,0,0,0);
-  border-top: 0 solid;
-  border-bottom: 70px solid #1abc9c;
-  transform: rotateZ(-70deg)   ;
-}
+        border: 30px solid rgba(0,0,0,0);
+        border-top: 0 solid;
+        border-bottom: 80px solid #1abc9c;
+    }
+
+    &:after
+    {
+        position: absolute;
+        top: 3px;
+        left: -105px;
+
+        width: 0;
+        height: 0;
+
+        content: '';
+        transform: rotateZ(-70deg)   ;
+
+        border: 100px solid rgba(0,0,0,0);
+        border-top: 0 solid;
+        border-bottom: 70px solid #1abc9c;
+    }
 }
 /*CSS3 keyframes for glittering effect*/
 
 
-@keyframes glitter {
-    0% {
+@keyframes glitter
+{
+    0%
+    {
         -webkit-transform: scale(1.0);
+
         opacity: 1;
     }
-    25% {
-        -webkit-transform: scale(0.5);
+    25%
+    {
+        -webkit-transform: scale(.5);
+
         opacity: 0;
     }
-    50% {
+    50%
+    {
         -webkit-transform: scale(1.0);
+
         opacity: 1;
     }
-    75% {
-        -webkit-transform: scale(0.5);
+    75%
+    {
+        -webkit-transform: scale(.5);
+
         opacity: 0;
     }
-    100% {
+    100%
+    {
         -webkit-transform: scale(1.0);
+
         opacity: 1;
     }
 }

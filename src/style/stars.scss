@@ -4,13 +4,13 @@
 }
 
 // n is number of stars required
-@function multiple-box-shadow($n,$blur,$color,$height)
+@function multiple-box-shadow($n,$blur,$color,$height,$width)
 {
-    $value: '#{random($view-height)}px #{random($height)}px #{$blur}px 0px #{random-color($color)}';
+    $value: '#{random($width)}px #{random($height)}px #{$blur}px 0px #{random-color($color)}';
 
     @for $i from 1 through $n
     {
-        $value: '#{$value} , #{random($view-height)}px #{random($height)}px #{$blur}px 0px #{random-color($color)}';
+        $value: '#{$value} , #{random($width)}px #{random($height)}px #{$blur}px 0px #{random-color($color)}';
     }
 
     @return unquote($value);
@@ -53,169 +53,196 @@
     @return unquote($repeat);
 }
 
-
-$shadows-small: multiple-box-shadow(1100,1,$white,2000);
-$shadows-medium: multiple-box-shadow(800,3,#adca72,1000);
-$shadows-big: multiple-box-shadow(700,1,#f0f8ff,600);
-$shadows-opacity: multiple-box-shadow(1100,2,#8ca8d7,600);
+$shadows-mobile: multiple-box-shadow(1100,1,$white,3000,440);
+$shadows-small: multiple-box-shadow(1100,1,$white,2000,2000);
+$shadows-medium: multiple-box-shadow(800,3,#adca72,1000,2500);
+$shadows-big: multiple-box-shadow(700,1,#f0f8ff,600,1600);
+$shadows-opacity: multiple-box-shadow(1100,2,#8ca8d7,600,700);
 $bg-position: multiple-bg-position(150);
 $bg-repeat: multiple-repeat(150);
 $bg-image: multiple-bg(150);
 
-
-
-.parallax
+@media (max-width:$mobile )
 {
     #stars1
     {
         position: relative;
+        z-index: -1;
         top: 30%;
 
-        width: 2px;
-        height: 2px;
+        width: 3px;
+        height: 3px;
 
-        animation: glitter 5s linear infinite;
+        animation: glitter 30s linear infinite;
 
         border-radius: 50%;
         background: transparent;
-        box-shadow: $shadows-small;
-
+        box-shadow: $shadows-mobile;
         &:after
         {
             position: absolute;
             bottom: -50%;
 
-            width: 4px;
-            height: 4px;
-
-            content: ' ';
-            transform: rotate(53deg);
-            animation: glitter 10s linear infinite;
-
-            border-radius: 50%;
-            background: transparent;
-            box-shadow: $shadows-big;
-        }
-    }
-
-    #stars2
-    {
-        width: 5px;
-        height: 5px;
-
-        transform: rotate(-23deg);
-        animation: glitter 10s linear infinite;
-
-        opacity: .5;
-        border-radius: 50%;
-        background: transparent;
-        box-shadow: $shadows-big;
-
-
-        &:after
-        {
-            position: absolute;
-            bottom: -300vh;
-            left: 50%;
-
-            width: 3px;
-            height: 3px;
-
-            content: ' ';
-            transition: 2s all ease-in;
-            transform: rotate(-122deg);
-
-            border-radius: 50%;
-            background: transparent;
-            box-shadow: $shadows-big;
-        }
-    }
-
-    #stars3
-    {
-        z-index: -1;
-
-        width: 3px;
-        height: 3px;
-
-        transform: rotate(-45deg);
-        animation: glitter 6s linear infinite;
-
-        border-radius: 50%;
-        background: transparent;
-        box-shadow: $shadows-medium;
-
-
-        // animation: animStar 100s linear infinite;
-
-        &:after
-        {
-            position: absolute;
-            bottom: 0;
-            left: 100px;
-
             width: 2px;
             height: 2px;
 
             content: ' ';
-            transform: rotate(-40deg) skew(15deg,15deg);
-            animation: glitter 10s linear infinite;
+            animation: glitter 20s linear infinite;
 
             border-radius: 50%;
             background: transparent;
-          //  box-shadow: $shadows-small;
+            box-shadow: $shadows-opacity;
         }
     }
+}
 
-    #stars5
+@media (min-width:$mobile )
+{
+    .parallax
     {
-        width: 2px;
-        height: 2px;
-
-        opacity: .65;
-        border-radius: 50%;
-        background: transparent;
-        // box-shadow: $shadows-opacity;
-        // animation: animStar 100s linear infinite;
-
-        &:after
+        #stars1
         {
-            position: absolute;
-            bottom: -250px;
+            position: relative;
+            top: 30%;
 
-            width: 1px;
-            height: 1px;
+            width: 2px;
+            height: 2px;
 
-            content: ' ';
-            animation: animStar 10s linear infinite;
+            animation: glitter 5s linear infinite;
+
+            border-radius: 50%;
+            background: transparent;
+            box-shadow: $shadows-small;
+
+            &:after
+            {
+                position: absolute;
+                bottom: -50%;
+
+                width: 4px;
+                height: 4px;
+
+                content: ' ';
+                transform: rotate(53deg);
+                animation: glitter 10s linear infinite;
+
+                border-radius: 50%;
+                background: transparent;
+                box-shadow: $shadows-big;
+            }
+        }
+
+        #stars2
+        {
+            width: 5px;
+            height: 5px;
+
+            transform: rotate(-23deg);
+            animation: glitter 10s linear infinite;
+
+            opacity: .5;
+            border-radius: 50%;
+            background: transparent;
+            box-shadow: $shadows-big;
+
+
+            &:after
+            {
+                position: absolute;
+                bottom: -300vh;
+                left: 50%;
+
+                width: 3px;
+                height: 3px;
+
+                content: ' ';
+                transition: 2s all ease-in;
+                transform: rotate(-122deg);
+
+                border-radius: 50%;
+                background: transparent;
+                box-shadow: $shadows-big;
+            }
+        }
+
+        #stars3
+        {
+            z-index: -1;
+
+            width: 3px;
+            height: 3px;
+
+            transform: rotate(-45deg);
+            animation: glitter 6s linear infinite;
+
+            border-radius: 50%;
+            background: transparent;
+            box-shadow: $shadows-medium;
+
+
+            &:after
+            {
+                position: absolute;
+                bottom: 0;
+                left: 100px;
+
+                width: 2px;
+                height: 2px;
+
+                content: ' ';
+                transform: rotate(-40deg) skew(15deg,15deg);
+                animation: glitter 10s linear infinite;
+
+                border-radius: 50%;
+                background: transparent;
+                box-shadow: $shadows-small;
+            }
+        }
+
+        #stars5
+        {
+            width: 2px;
+            height: 2px;
+
+            animation: animStar 100s linear infinite;
 
             opacity: .65;
             border-radius: 50%;
             background: transparent;
-         //   box-shadow: $shadows-opacity;
+            box-shadow: $shadows-opacity;
+
+            &:after
+            {
+                position: absolute;
+                bottom: -250px;
+
+                width: 1px;
+                height: 1px;
+
+                content: ' ';
+                animation: animStar 10s linear infinite;
+
+                opacity: .65;
+                border-radius: 50%;
+                background: transparent;
+                box-shadow: $shadows-opacity;
+            }
+        }
+
+        #stars4
+        {
+            width: 100%;
+            height: 310px;
+
+            opacity: .8;
+            background-color: transparent;
+            background-image: $bg-image;
+            background-repeat: no-repeat;
+            background-position: $bg-position;
+            background-size: 10px 10px;
         }
     }
-
-    #stars4
-    {
-        width: 100%;
-        height: 310px;
-        //  background-repeat: $bg-repeat;
-
-        opacity: .8;
-        //border-radius: 50%;
-        background-color: transparent;
-        background-image: $bg-image;
-        background-repeat: no-repeat;
-        background-position: $bg-position;
-        background-size: 10px 10px;
-        // animation: glitter 50s linear infinite;
-        // animation: glitter 10s linear infinite;
-        // animation: animStar 150s linear infinite;
-    }
 }
-
-
 
 @keyframes glitter
 {

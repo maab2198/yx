@@ -1,22 +1,24 @@
-$body-bg: #fff;
+$body-bg: #1f426c;
 $white: #fff;
 $yellow: #cbc95f;
 $view-height: 2000;
 $v-height: 100vh;
 $star: url(https://officialpsds.com/imageview/78/m3/78m383_large.png?1521316488);
+$tablet: 800px;
+$mobile: 425px;
 
 body
 {
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     font-size: 20px;
-
-    height: 100vh;
     margin: 0;
 
     color: #333;
-    background: linear-gradient(to bottom, #0a1425 0%,#101e3b 39%,#152d5b 64%,#1f426c 100%);
+    background: linear-gradient(to bottom, #0a1425 0%,#101e3b 39%,#152d5b 64%,$body-bg 100%);
     background-color: $body-bg;
+    background-repeat: no-repeat;
 }
+
 h1,
 h2,
 h3,
@@ -35,29 +37,66 @@ h3
 }
 .wrapper
 {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-
     display: flex;
 
     box-sizing: border-box;
     width: 100%;
     height: 100vh;
-    min-height: 700px;
+    // min-height: 700px;
     padding: 10% 10%;
     padding-bottom: 0;
 
     justify-content: flex-end;
+    @media (orientation: portrait),  (max-width:$tablet )
+    {
+        flex-wrap: wrap;
+    }
+    @media (max-width:$mobile )
+    {
+        flex-direction: column;
+
+        flex-wrap: nowrap;
+    }
 }
 
 .wrapper__text
 {
     position: relative;
 
-    width: 70%;
+    display: flex;
+    flex-direction: column;
 
-    background-color: $body-bg;
+    box-sizing: border-box;
+    width: 70%;
+    padding: 10px;
+
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
+
+    //  background-color: $white;
+    @media (orientation: portrait), (max-width:$tablet )
+    {
+        width: 100%;
+    }
+    @media (max-width:$mobile )
+    {
+        align-self: flex-start;
+        order: 1;
+            height: 100%;
+    }
+    &>p
+    {
+        font-family: 'Comfortaa',Helvetica, cursive;
+        line-height: 1.25;
+
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size:30px;
+
+        color: #fff;
+    }
 }
 
 .wrapper__window
@@ -70,48 +109,59 @@ h3
     width: 100%;
     margin-right: auto;
 
-    border: 30px solid $body-bg;
-    border-bottom: 50px solid $body-bg;
+    border: 30px solid $white;
+    border-bottom: 50px solid $white;
     background-image: url(../img/land.png);
     background-repeat: no-repeat;
     background-position: 140% 100%;
     background-size: contain;
-
-
-
-    &:after
+    @media (orientation: portrait), (max-width:$tablet )
     {
-        position: absolute;
-        z-index: 3;
-        bottom: 0;
-        left: 0;
+        height: 70%;
+    }
+    @media (max-width:$mobile )
+    {
+        height: 100%;
 
-        width: 50%;
-        height: 75%;
-
-        content: '';
-
-        background: url(../img/tree-left.png) no-repeat;
-        background-position: 0 100%;
-        background-size: contain;
+        order: 2;
     }
 
-
-    &:before
+    @media (min-width:$mobile )
     {
-        position: absolute;
-        z-index: 1;
-        right: 0;
-        bottom: 0;
+        &:after
+        {
+            position: absolute;
+            z-index: 3;
+            bottom: 0;
+            left: 0;
 
-        width: 50%;
-        height: 75%;
+            width: 40%;
+            height: 60%;
 
-        content: '';
+            content: '';
 
-        background: url(../img/tree-right.png) no-repeat;
-        background-position: 100% 100%;
-        background-size: contain;
+            background: url(../img/tree-left.png) no-repeat;
+            background-position: 0 100%;
+            background-size: contain;
+        }
+
+
+        &:before
+        {
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            bottom: 0;
+
+            width: 50%;
+            height: 59%;
+
+            content: '';
+
+            background: url(../img/tree-right.png) no-repeat;
+            background-position: 100% 100%;
+            background-size: contain;
+        }
     }
 }
 
@@ -128,15 +178,19 @@ h3
     width: 55%;
     height: 50%;
 
-    -webkit-transform: translate(-50%);
-            transform: translate(-50%);
+    transform: translate(-50%);
 
     background: url(../img/yx.gif) no-repeat;
     background-position: bottom;
     background-size: contain;
+    @media (max-width:$mobile )
+    {
+        width: 100%;
+        height: 100%;
+    }
 }
 
-.parallax
+img
 {
-    background: linear-gradient(to bottom, #0a1425 0%,#101e3b 39%,#152d5b 64%,#1f426c 100%);
+    object-fit: cover;
 }

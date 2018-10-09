@@ -1,50 +1,61 @@
-.parallax
+@media (min-width:$mobile )
 {
-    overflow-x: hidden;
-    overflow-y: auto;
+    .parallax
+    {
+        position: absolute;
+        z-index: 1;
+        top: 0;
 
-    height: 100vh;
+        overflow-x: hidden;
+        overflow-y: overlay;
 
-    perspective: 1px;
-}
+        height: 100vh;
 
-.parallax__layer
-{
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
+        background: linear-gradient(to bottom, #0a1425 0%,#101e3b 39%,#152d5b 64%,#1f426c 100%);
 
-.stars__group
-{
-    transform: translateZ(0);
-}
+        perspective: 1px;
+    }
 
-.parallax__group
-{
-    position: relative;
-    top: 200%;
+    .parallax__layer
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .stars__group
+    {
+        transform: translateZ(0);
+    }
+
+    .parallax__group
+    {
+        position: relative;
+        top: 200%;
+
         overflow: hidden;
-        tarnsition:.3s;
-}
 
-.parallax__layer--back
-{
-    position: absolute;
-    bottom: -250vh;
-    left: 100px;
+        tarnsition: .3s;
+    }
 
-    transform: translateZ(0px) scale(2);
-}
+    .parallax__layer--back
+    {
+        position: absolute;
+        bottom: -250vh;
+        left: 100px;
 
-.wrapper
-{
-    transform: translateZ(-1px) scale(2);
-}
+        transform: translateZ(0px) scale(2);
+    }
 
-.portfolio
-{
-    transform: translateZ(-2px) scale(2.4);
+    .wrapper
+    {
+        transform: translateZ(-1px) scale(2);
+    }
+
+    .portfolio
+    {
+        transform: translateZ(-2px) scale(2.4);
+    }
 }

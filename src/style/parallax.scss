@@ -58,4 +58,15 @@
     {
         transform: translateZ(-2px) scale(2.4);
     }
+
+@supports (-moz-appearance:none)
+    and (word-spacing:100%)
+    {
+        .portfolio
+        {
+            transform: none;
+            margin-bottom:100px;
+            width:80%;
+        }
+    }
 }

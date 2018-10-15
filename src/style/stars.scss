@@ -56,8 +56,9 @@
 $shadows-mobile: multiple-box-shadow(1100,1,$white,3000,440);
 $shadows-small: multiple-box-shadow(1100,1,$white,2000,2000);
 $shadows-medium: multiple-box-shadow(800,3,#adca72,1000,2500);
-$shadows-big: multiple-box-shadow(700,1,#f0f8ff,600,1600);
-$shadows-opacity: multiple-box-shadow(1100,2,#8ca8d7,600,700);
+$shadows-big: multiple-box-shadow(900,1,#f0f8ff,900,1600);
+$shadows-opacity: multiple-box-shadow(1100,2,#8ca8d7,800,2000);
+$shadows-opacity-mobile: multiple-box-shadow(1100,2,#8ca8d7,600,440);
 $bg-position: multiple-bg-position(150);
 $bg-repeat: multiple-repeat(150);
 $bg-image: multiple-bg(150);
@@ -91,7 +92,7 @@ $bg-image: multiple-bg(150);
 
             border-radius: 50%;
             background: transparent;
-            box-shadow: $shadows-opacity;
+            box-shadow: $shadows-opacity-mobile;
         }
     }
 }
@@ -190,7 +191,7 @@ $bg-image: multiple-bg(150);
                 height: 2px;
 
                 content: ' ';
-                transform: rotate(-40deg) skew(15deg,15deg);
+                transform: rotate(-40deg);
                 animation: glitter 10s linear infinite;
 
                 border-radius: 50%;
@@ -203,7 +204,9 @@ $bg-image: multiple-bg(150);
         {
             width: 2px;
             height: 2px;
-
+            //bottom: -500vh;
+            //position:absolute;
+            //left: 50%;
             animation: animStar 100s linear infinite;
 
             opacity: .65;
@@ -240,6 +243,40 @@ $bg-image: multiple-bg(150);
             background-repeat: no-repeat;
             background-position: $bg-position;
             background-size: 10px 10px;
+
+             &:after
+            {
+                position: absolute;
+
+                transform: rotate(45deg);
+
+                content: ' ';
+                bottom:-400vh;
+                width: 2px;
+                height: 2px;
+                animation: glitter 20s linear infinite;
+
+                opacity: .65;
+                border-radius: 50%;
+                background: transparent;
+                box-shadow: $shadows-small;
+            }
+
+            &:before
+            {
+                position: absolute;
+
+                transform: rotate(-15deg);
+
+                content: ' ';
+                bottom:-350vh;
+                width: 3px;
+                height: 3px;
+                animation: glitter 10s linear infinite;
+                border-radius: 50%;
+                background: transparent;
+                box-shadow: $shadows-big;
+            }
         }
     }
 }

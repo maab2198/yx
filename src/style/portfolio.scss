@@ -391,7 +391,7 @@
 
     }
 
-    &--one > *{
+    &--one {
 
           @media (min-width:$mobile){
             display:none;
